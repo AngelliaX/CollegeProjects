@@ -1,7 +1,7 @@
 ---
 title: Notes for uni lectures
 date: 2021-11-01 16:44:00
-updated: 2022-03-17 13:00:00
+updated: 2022-05-23 20:21:00
 categories: uni
 hide: false
 sticky: 100
@@ -11,10 +11,27 @@ index_img: https://source.unsplash.com/random
 ---
 
 <details open>
-	<summary><b><u><font color="orange">Year 1</font>: Semester <font color="red">2</font></u></b></summary>
+	<summary><b><u><font color="red">Year 1:</font> Semester 2</u></b></summary>
+
+
+**Thi Cuối kỳ:**
+- **P.Pháp Tính:**
+- **Lý:**
+- **Toán rời rạc:**
+- **C.trúc dữ liệu:**
+- **C.trúc máy tính & vi xử lí:**
+	- **Tổng quan:** 60 phút thi, 30 câu TN + 2 TL
+	- 6 điểm: 30 câu trắc nghiệm: trải dài 7 chương
+	- 4 điểm: 2->3 câu tự luận: tập trung chương 1:
+		- Câu 1: cpi,hiệu năng, chu kì, mibs, speed up
+		- Câu 2: liên quan bộ nhớ, chip nhớ, tương tự bài trong giữa kì 2
+		- câu 3: bộ nhớ cache
+			- bài tập tìm bit của từng line như hồi ktra giữa kì 2
+			- tính tỉ lệ hit, miss
+			- tính thời gian truy cập trung bình
 
 <details open>
-	<summary><b><u>Conclusion Mid-sem 2 Year 1</u></b></summary>
+	<summary><b><u>Conclusion <font color="orange">Endterm</font></u></b></summary>
 	
 {% tabs Name, -1 %}
 
@@ -28,11 +45,62 @@ index_img: https://source.unsplash.com/random
 
 # C.trúc dữ liệu
 
+Đề cương:
+
+- <details>
+	<summary><u>Nội dung</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/decuongctdl_1.png)
+	
+	</details>
+
+- <details>
+	<summary><u>Đề mẫu</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/decuongctdl_2.png)
+	
+	</details>
+
+- <details>
+	<summary><u>Đề Năm Ngoái</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/deon_ctdl_namngoai.png)
+	
+	</details>
 <!-- endtab -->
 
 <!-- tab Toán rời rạc-->
 
 # Toán rời rạc
+
+- <details>
+	<summary><u>Đề cương</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/toanroirac.png)
+	
+	</details>
+
+- <details>
+	<summary><u>Đề mẫu của thầy Tao</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/ontap_trr.png)
+	
+	</details>
+
+- <details>
+	<summary><u>Giải</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/degiai_trr.png)
+	
+	</details>
+
+- <details>
+	<summary><u>Đề năm ngoái</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/dethitoanroirac.png)
+	
+	</details>
+
 
 <!-- endtab -->
 
@@ -40,29 +108,454 @@ index_img: https://source.unsplash.com/random
 
 # C.trúc máy tính và VXL
 
-#### Câu 1. (3đ) CPU Execution Time, CPI, MIPS,
+- Đề ôn 21clc-1: 
 
 - <details>
-	<summary><b><u>CPU Execution Time, Hiệu năng, MIPS</u></b></summary>
+	<summary><u>Trang 1</u></summary>
 	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/ctmt_ontap_1.jpg)
+	
+	</details>
+
+- <details>
+	<summary><u>Trang 2</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/ctmt_ontap_2.jpg)
+	
+	</details>
+
+- <details>
+	<summary><u>Trang 3</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/ctmt_ontap_3.jpg)
+	
+	</details>
+
+- <details>
+	<summary><u>Trang 4</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/ctmt_ontap_4.jpg)
+	
+	</details>
+
+- <details>
+	<summary><u>Tổng hợp cả 4 trang</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/ctmt&vxl.png)
+	
+	</details>
+
+-----------------------------------------
+
+- <details>
+	<summary><u>Tự luận</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/tuluan_ctmt.png)
+	
+	</details>
+
+- <details>
+	<summary><u>Đáp án</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/tuluan_ctmt_anh1.png)
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/tuluan_ctmt_anh2.png)
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/tuluan_ctmt_anh3.png)
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/tuluan_ctmt_anh4.png)
+	
+	</details>
+----------------------------------------
+- <details>
+	<summary><b><u>Tóm tắt cách chuyển binary sang IEEE 754</u></b></summary>
+	
+	- số đầu là dấu (1 = âm)
+	- chuyển 8 số sau sang dec = e
+	- 8 số tiếp theo sang dec = m
+	- đáp án = (dấu) 1(phẩy)m * 2^(e-127)
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic42.png)
+	
+	</details>
+
+	
+<!-- endtab -->
+
+<!-- tab Vật lý 1-->
+
+# Vật lý 1
+
+**Nội dung thi giữa kì:**
+
+- <details>
+
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic44.png)
+	</detail>
+
+**Sách bài tập VL1:** [[pdf]](../../../../savefiles/note_for_uni_lectures/Bài_tập_Vật_lí_1.pdf)
+**Lời giải**: [link](https://issuu.com/daykemquynhon/docs/btvl2dcsvdhsplhnbdn17)
+
+![img](/img/posts_images/uni-lectures/year1-sem2/ghinho_ly1.png)
+
+### Chương 6 Điện trường:
+
+- <details>
+	<summary><u>Bài 2</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic50.png)
+	
+	</details>
+
+- <details>
+	<summary><u>Bài 4 (thiếu câu d)</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic51.png)
+	
+	</details>
+
+- <details>
+	<summary><u>Bài 7 (thiếu câu b)</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic52.png)
+	
+	</details>
+
+### Chương 9 Từ trường:
+
+- <details>
+	<summary><u>Bài 1</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic53.png)
+	
+	</details>
+
+- <details>
+	<summary><u>Bài 2</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic54.png)
+	
+	</details>
+
+- <details>
+	<summary><u>Bài 4</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic55.png)
+	
+	</details>
+
+- <details>
+	<summary><u>Bài 6</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic56.png)
+	
+	</details>
+
+- <details>
+	<summary><u>Bài 8</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic57.png)
+	
+	</details>
+
+### Chương 10 Cảm ứng điện từ:
+
+- <details>
+	<summary><u>Bài 4</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic58.png)
+	
+	</details>
+
+- <details>
+	<summary><u>Bài 5</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic59.png)
+	
+	</details>
+
+- <details>
+	<summary><u>Bài 6</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic60.png)
+	
+	</details>
+
+- <details>
+	<summary><u>Bài 8</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic61.png)
+	
+	</details>
+
+- <details>
+	<summary><u>Bài 10</u></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic62.png)
+	
+	</details>
+	
+<!-- endtab -->
+
+{% endtabs %}
+</details>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<details>
+	<summary><b><u>Conclusion <font color="lime">Midterm</font></u></b></summary>
+	
+{% tabs Name, -1 %}
+
+<!-- tab Phương pháp tính-->
+
+# Phương pháp tính
+
+<!-- endtab -->
+
+<!-- tab C.trúc dữ liệu-->
+
+# C.trúc dữ liệu
+
+- <details>
+	<summary><b><u>Dàn ý Code</u></b></summary>
+	
+	![img](/img/posts_images/uni-lectures/year1-sem2/pic34.png)
+	
+	</details>
+
+- <details>
+	<summary><b><u>Code giao diện</u></b></summary>
+	
+	![img](/img/posts_images/uni-lectures/year1-sem2/pic33.png)
+	
+	</details>
+
+- <details>
+	<summary><b><u>Code nhập data, in, tìm kiếm</u></b></summary>
+	
+	![img](/img/posts_images/uni-lectures/year1-sem2/pic32.png)
+	
+	</details>
+
+<!-- endtab -->
+
+<!-- tab Toán rời rạc-->
+
+# Toán rời rạc
+
+- Chú ý đọc đề, **đổi số liệu**
+- A = P = Chỉnh hợp,  C = tổ hợp
+
+- <details>
+	<summary><b><u>Câu 1</u></b></summary>
+	
+	![img](/img/posts_images/uni-lectures/year1-sem2/pic35.png)
+	
+	</details>
+
+- <details>
+	<summary><b><u>Câu 2</u></b></summary>
+	
+	![img](/img/posts_images/uni-lectures/year1-sem2/pic36.png)
+	
+	</details>
+
+- <details>
+	<summary><b><u>Câu 3</u></b></summary>
+	
+	![img](/img/posts_images/uni-lectures/year1-sem2/pic37.png)
+	
+	</details>
+
+- <details>
+	<summary><b><u>Câu 4</u></b></summary>
+	
+	![img](/img/posts_images/uni-lectures/year1-sem2/pic38.png)
+	
+	</details>
+<!-- endtab -->
+
+<!-- tab C.trúc máy tính và VXL-->
+
+# C.trúc máy tính và VXL
+
+#### Câu 1: Biến đổi - cộng hexa
+
+- <details>
+	<summary><b><u>Web hỗ trợ chuyển đổi</u></b></summary>
+	
+	- Biến đổi thập,nhị phân sang thập lục phân: [rapidtables.com](https://www.rapidtables.com/convert/number/binary-to-hex.html)
+	- Cộng trừ hex [www.calculator.net](https://www.calculator.net/hex-calculator.html)
+	
+	</details>
+
+- <details>
+	<summary><b><u>Lời giải</u></b></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic41.png)
+	
+	</details>
+
+#### Câu 2:
+
+- <details>
+	<summary><b><u>Web chuyển đổi dạng IEEE 754-32 về thập phân và ngược lại</u></b></summary>
+	
+	- [theza2.mobie.in](http://theza2.mobie.in/goc-hoc-tap/tin-hoc-dai-cuong/others/chuanIEEE754t85)
+	
+	</details>
+
+- <details>
+	<summary><b><u>Chuẩn IEEE 754-32 về thập phân</u></b></summary>
+	
+	- IEEE 754-32: S (1)|E (8)|M (23)
+	- IEEE 754-8: S (1)|E (3)|M (4)
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic42.png)
+	
+	</details>
+
+#### Câu 3:
+
+- <details>
+	<summary><b><u>Cache liên kết kiểu tập hợp - Set Associative Caches</u></b></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic39.png)
+	
+	</details>
+
+- <details>
+	<summary><b><u>Two-way Set Associative Caches</u></b></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic40.png)
+	
+	</details>
+
+- <details>
+	<summary><b><u>Ảnh hưởng đến bit nào của thanh ghi cờ</u></b></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/picx.png)
+	
+	</details>
+
+#### Câu 4:
+
+- <details>
+	<summary><b><u>Giải mã hình ảnh</u></b></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/picx.png)
+	
+	</details>
+
+- <details>
+	<summary><b><u>Vẽ hình thiết kế modun nhớ</u></b></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/picx.png)
+	
+	</details>
+
+-------------
+
+- <details>
+	<summary><b><u>Cũ rồi</u></b></summary>
+	
+	- CPU Execution Time, CPI, MIPS:
 	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic1.png) 
 	
 	</details>
-
-- <details>
-	<summary><b><u>Updating </u></b></summary>
-	
-	- casc
-	
-	</details>
-
-
 
 <!-- endtab -->
 
 <!-- tab Vật lý 1-->
 
 # Vật lý 1
+
+Nội dung thi giữa kì: [[pdf]](../../../../savefiles/note_for_uni_lectures/GK_NDOnTap_Vatly1.pdf)
+- ![img](/img/posts_images/uni-lectures/year1-sem2/pic5.png)
+**Sách bài tập VL1:** [[pdf]](../../../../savefiles/note_for_uni_lectures/Bài_tập_Vật_lí_1.pdf)
+**Lời giải cho sách bài tập:** [[link]](https://www.yumpu.com/en/document/read/59127823/bai-tap-vat-ly-1-co-hoc-ien-tu-hoc-huong-dan-giai-mot-so-bai-tap-co-ban)
+
+**Dùng chung (chưa rõ):**
+
+- <details>
+	<summary><b><u>3 công thức cđ nhanh dần đều</u></b></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic7.png)
+	
+	</details>
+
+**Câu 1** (1đ, Lý thuyết):
+
+- <details>
+	<summary><b><u>Lý thuyết</u></b></summary>
+
+	- Sup
+	</details>
+**Câu 2** (dự đoán **Chương 2**: ĐLHọc Chất Điểm):
+
+- <details>
+	<summary><b><u>Định luật 2 Newton và Công thức nhanh/chậm dần đều</u></b></summary>
+
+	- <u>**Cách làm**</u>: 
+		- **Bước 1:** Đặt trục Ox,Oy, Phang công thức Đl2 newton
+		- **Bước 2:** Xét phương trình trên trục Oy, thường sẽ tìm được N. Xét trên Ox sẽ được p.trình nào đóng
+		- **Bước 3 (Optional):** Nếu chưa giải ra, thì kết hợp c.thức nhanh dần đều 
+	- <details>
+		<summary><b><u>Bài ví dụ</u></b></summary>
+		
+		- ![img](/img/posts_images/uni-lectures/year1-sem2/pic6.png)
+		</details>
+	</details>
+**Câu 3** (dự đoán **Chương 3**: ĐLHọc Vật rắn (Hệ chất điểm)):
+
+- <details>
+	<summary><b><u>Bài 2</u></b></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic8.png)
+	
+	</details>
+
+- <details>
+	<summary><b><u>Bài 3</u></b></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic9.png)
+	
+	</details>
+
+- <details>
+	<summary><b><u>Bài 5</u></b></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic10.png)
+	
+	</details>
+**Câu 4** (dự đoán **Chương 3**):
+
+- <details>
+	<summary><b><u>Bài 7</u></b></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic11.png)
+	
+	</details>
+
+- <details>
+	<summary><b><u>Bài 8</u></b></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic12.png)
+	
+	</details>
+
+- <details>
+	<summary><b><u>Bài 9</u></b></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic13.png)
+	
+	</details>
+**Câu 5** (dự đoán **Chương 4**: Công và Cơ năng):
+
+- <details>
+	<summary><b><u>Tên bài</u></b></summary>
+	
+	- sicko mode
+	
+	</details>
 
 <!-- endtab -->
 
@@ -92,26 +585,184 @@ index_img: https://source.unsplash.com/random
 
 </details>
 
-<details open>
-	<summary><b><u>Tự đọc</u></b></summary>
+<details>
+	<summary><b><u>Giữa kì</u></b></summary>
 	
-- **Chương 2: Sai số**:
-	- **Sai số của hàm**:
-		- <details>
-			
-			- ![img](/img/posts_images/uni-lectures/year1-sem2/pic3.png) 
-			</details>
-- **Chương 3: Tính giá trị hàm**:	
-	- **Sơ đồ hoocner**		
-- **Chương 4: Giải gần đúng phương trình**:
-	- Để tìm nghiệm gần đúng, ta có 2 cách:
-		- **Tách nghiệm**:
-			- Phương pháp đồ thị
-		- **Chính xác hoá nghiệm**: 4 phương pháp
-			- Phương pháp chia đôi,lặp,tiếp tuyến,dây cung
+#### **Chương 2: Tổng hợp kiến thức sai số**:
 
+- <details>
+	<summary><b><u>Liên hệ giữa sai số tuyệt đối & tương đối</u></b></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic14.png)
+	
+	</details>
+
+- <details>
+	<summary><b><u>Ví dụ sai số của Hàm số</u></b></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic3.png)
+	
+	</details>
+
+#### **Chương 3: Tính giá trị hàm**:
+
+- <details>
+	<summary><b><u>Sơ đồ hoocner và thuật toán</u></b></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic15.png)
+	
+	</details>
+
+- <details>
+	<summary><b><u>Sơ đồ hoocner Tổng Quát và thuật toán</u></b></summary>
+	
+	- ![img](/img/posts_images/uni-lectures/year1-sem2/pic69.png)
+	
+	</details>
+
+#### **Chương 4: Giải gần đúng phương trình**:
+
+- Để tìm nghiệm gần đúng, ta có 2 cách:
+- **Tách nghiệm**:
+	- <details>
+		<summary><b><u>Phương pháp đồ thị</u></b></summary>
+		
+		- ![img](/img/posts_images/uni-lectures/year1-sem2/pic16.png)
+		
+		</details>
+	
+	- <details>
+		<summary><b><u>Định lí 1 và ví dụ</u></b></summary>
+		
+		- ![img](/img/posts_images/uni-lectures/year1-sem2/pic17.png)
+		
+		</details>
+	
+	- <details>
+		<summary><b><u>Định lí 2 (tìm sai số tuyệt đối) và ví dụ</u></b></summary>
+		
+		- ![img](/img/posts_images/uni-lectures/year1-sem2/pic18.png)
+		
+		</details>
+	
+	- <details>
+		<summary><b><u>Định lí 3 và ví dụ</u></b></summary>
+		
+		- ![img](/img/posts_images/uni-lectures/year1-sem2/picx.png)
+		
+		</details>
+	
+	- <details>
+		<summary><b><u>Định lí 4 và ví dụ</u></b></summary>
+		
+		- ![img](/img/posts_images/uni-lectures/year1-sem2/picx.png)
+		
+		</details>
+- **Chính xác hoá nghiệm**: 4 phương pháp
+	- <details>
+		<summary><b><u>Phương pháp chia đôi</u></b></summary>
+		
+		- Giải thích:
+			- ![img](/img/posts_images/uni-lectures/year1-sem2/pic19.png)
+		- Thuật toán:
+			- ![img](/img/posts_images/uni-lectures/year1-sem2/pic20.png)
+		- Code:
+			- ![img](/img/posts_images/uni-lectures/year1-sem2/pic21.png)
+		
+		</details>
+	
+	- <details>
+		<summary><b><u>Phương pháp lặp</u></b></summary>
+		
+		- Cách tìm g(x):
+			- ![img](/img/posts_images/uni-lectures/year1-sem2/pic22.png)
+		- Tìm được g(x) rồi thì viết code như ppchia đôi
+			- ![img](/img/posts_images/uni-lectures/year1-sem2/pic23.png)
+		
+		</details>
+	
+	- <details>
+		<summary><b><u>Phương pháp tiếp tuyến</u></b></summary>
+		
+		- Thuật toán:
+			- ![img](/img/posts_images/uni-lectures/year1-sem2/pic24.png)
+		
+		</details>
+	
+	- <details>
+		<summary><b><u>Phương pháp dây cung</u></b></summary>
+		
+		- Thuật toán:
+			- ![img](/img/posts_images/uni-lectures/year1-sem2/pic25.png)
+		
+		</details>
+</details>
+
+<details open>
+	<summary><b><u>Cuối kì</u></b></summary>
+	
+- **Chương 5: Giải hệ p.trình đstt**:
+	- PP Krame:
+		- only code
+	- PP Gauss:
+		- Biến đổi thành tam giác trên rồi giải nghiệm
+	- ❌PP Gauss - Siedel:
+	- ❌PP Giảm dư:
+- **Chương 6: Tìm Gtrị riêng, vector riêng**:
+	- ❌Tìm gtrị riêng bằng pp Đanhilepski
+	- ❌Tìm vector riêng bằng pp Đanhilepski
+- **Chương 7: Nội suy và pp bình phương bé nhất**:
+	- Tìm đa thức nội suy Lagrange (2 cách)
+		- <details>
+			<summary><u>Cách 1 là đủ</u></summary>
+			
+			- ![img](/img/posts_images/uni-lectures/year1-sem2/pic45.png)
+			
+			</details>
+	- ❌Tìm đ.thức nội suy Lagrange với điểm nội suy cách đều
+	- Bảng nội suy Ayken (2 dạng)
+		- Dạng 1: Đọc giáo trình đủ hiểu
+		- Dạng 2:
+			- <details>
+				<summary><u>Tóm tắt</u></summary>
+				
+				- ![img](/img/posts_images/uni-lectures/year1-sem2/pic46.png)
+				
+				</details>
+	- Nội suy Newton
+		- <details>
+			<summary><u>Tóm tắt</u></summary>
+			
+			- ![img](/img/posts_images/uni-lectures/year1-sem2/pic47.png)
+			
+			</details>
+	- Nội suy Hecmit
+		- <details>
+			<summary><u>Tóm tắt</u></summary>
+			
+			- ![img](/img/posts_images/uni-lectures/year1-sem2/pic48.png)
+			
+			</details>
+	- PP Bình phương bé nhất (có 3 dạng)
+		- ❌Dạng y = a + bx
+		- ❌Dạng y = a + bx + c.x^2
+		- Dạng y = a.x^b hoặc y = a.e^bx:
+			- <details>
+				<summary><u>Tóm tắt</u></summary>
+				
+				- ![img](/img/posts_images/uni-lectures/year1-sem2/pic49.png)
+				
+				</details>
+			
+- **Chương 8: Tính gần đúng tích phân xác định**:
+	- Công thức hình thang
+	- Công thức parabol
+	- Công thức Newton-Cotet
 	
 </details>
+
+
+
 
 <!-- endtab -->
 
@@ -148,30 +799,36 @@ index_img: https://source.unsplash.com/random
 
 </details>
 
-<details open>
-	<summary><b><u>Tự đọc</u></b></summary>
+<details>
+	<summary><b><u>Soạn bài</u></b></summary>
 	
-- **Chương 1**:
+- **Chương 1: Bài toán đếm-Bài toán tồn tại**:
 	- **Các nội dung trong chương 1:**	
 		- **Các nguyên lí cơ bản**
-			- **Nguyên lí nhân**: như lớp 9
-			- **Nguyên lí cộng**: như lớp 9
+			- **Nguyên lí nhân**: k cần quan tâm
+			- **Nguyên lí cộng**: k cần quan tâm
 			- **Nguyên lí bù trừ**:
-				- dễ thì dễ
-				- khó ở phần áp dụng công thức tổng quát
+				- ![img](/img/posts_images/uni-lectures/year1-sem2/pic27.png)
 			- **Nguyên lí Dirichlet**: là bài toán nhốt thỏ vào lồng
 				- ![img](/img/posts_images/uni-lectures/year1-sem2/pic4.png)
 		- **Các cấu hình tổ hợp cơ bản**
-			- **Chỉnh hợp lặp**
-			- **Chỉnh hợp**
+			- **Chỉnh hợp lặp**:
+				- ![img](/img/posts_images/uni-lectures/year1-sem2/pic26.png)
+			- **Chỉnh hợp**:
+				- Như cũ, có 4 con số từ 1->9, bóc 2 con để tạo số 2 chữ số => 4A2 = 4P2 = 12
 			- **Hoán vị**
+				- Như cũ, 1 hàng dài có 4 người, tìm các cách xếp => 4! 
 			- **Tổ hợp**
-			- **Các công thức tổ hợp**
+				- Như cũ, có 4 cây kẹo, bóc 2 cây => 4C2 = 6
+			- **Các công thức tổ hợp**: ???
 		- **Các cấu hình tổ hợp suy rộng**
-			- **Hoán vị lặp**
-			- **Tổ hợp lặp**
-
-
+			- **Hoán vị lặp**:
+				- ![img](/img/posts_images/uni-lectures/year1-sem2/pic28.png)
+			- **Tổ hợp lặp**: Nguồn ytb: [[https://youtu.be/BxV1bOJU4j8?t=89]](https://youtu.be/BxV1bOJU4j8?t=89)
+				- ![img](/img/posts_images/uni-lectures/year1-sem2/pic29.png)
+				- ![img](/img/posts_images/uni-lectures/year1-sem2/pic30.png)
+- **Chương 2: Kỹ thuật đếm nâng cao**:
+	- **Hệ thức truy hồi**
 </details>
 
 <!-- endtab -->
@@ -180,18 +837,21 @@ index_img: https://source.unsplash.com/random
 
 # C.trúc máy tính và VXL
 
-<details>
+<details open>
 	<summary><b><u>Tổng quan chương trình</u></b></summary>
 	
 - Quá trình dạy học: [[pdf]](../../../../savefiles/note_for_uni_lectures/Ctruc_mt&vxl.pdf)
 - Mục lục:
 	- Chương 1: [[GIỚI THIỆU CHUNG]](../../../../savefiles/note_for_uni_lectures/Chap_01_Gioi_thieu.pdf)
 	- Chương 2: [[B.DIỄN D.LIỆU TRONG CÁC H.THỐNG M.TÍNH]](../../../../savefiles/note_for_uni_lectures/Chap_02_Arithmetic_and_Logic.pdf)
-	- Chương 3: [[xxx]](../../../../savefiles/note_for_uni_lectures/xxx.pdf)
-	- Chương 4: [[xxx]](../../../../savefiles/note_for_uni_lectures/xxx.pdf)
-	- **Thi giữa kì**
-	- Từ chương 5 đến hết chương 7
+	- Chương 3: [[HỆ THỐNG MÁY TÍNH]](../../../../savefiles/note_for_uni_lectures/Chap_03_The_Computer_System_vn.pdf)
+	- Chương 4: [[Memory System]](../../../../savefiles/note_for_uni_lectures/Chap_04_Memory_System_1.pdf)
+	- **Thi giữa kì**: Từ chương 5 đến hết chương 7
+	- Chương 5: [[HỆ THỐNG NHỚ]](../../../../savefiles/note_for_uni_lectures/Chap_05_IO.pdf)
+	- Chương 6: [[VÀO – RA]](../../../../savefiles/note_for_uni_lectures/Chap_06_Assembly.pdf)
+	- Chương 7: [[TỔ CHỨC XỬ LÝ SONG SONG]](../../../../savefiles/note_for_uni_lectures/Chap_07_Processor_Structure_and_Function.pdf)
 	- **Thi cuối kì**
+	
 - Đề giữa kì:
 	- Nhật clc kì1/2021 đề 1: [[pdf]](../../../../savefiles/note_for_uni_lectures/ctdl_nhatclc_giuaky_de1.pdf)
 	- Nhật clc kì1/2021 đề 2: [[pdf]](../../../../savefiles/note_for_uni_lectures/ctdl_nhatclc_giuaky_de2.pdf)
@@ -214,6 +874,20 @@ index_img: https://source.unsplash.com/random
 	- casc
 	
 	</details>
+
+#### Chương Input - Output
+	
+- ko có gì hot
+
+#### Chương Processor Structure & Function
+
+- Register (thanh ghi) là một bộ phận trong CPU (Processor)
+	- Trong CPU thì gồm nhiều nhóm register nhỏ
+		- General register, ... (xem ảnh)
+		- ![img](/img/posts_images/uni-lectures/year1-sem2/pic43.png)
+
+- Instruction Pipeling Pipelining Strategy
+	
 
 <!-- endtab -->
 
@@ -240,7 +914,8 @@ index_img: https://source.unsplash.com/random
 	- **page 5**: Hệ tọa độ đề các, hiểu nôm na là có vật M chuyển động theo 1 quỹ đạo, ta lấy 1 gốc bất kì là O, từ đó có vector OM. Ta có thể lấy tọa độ đề các trên không gian 2-3 chiều tùy bài
 - **Chương 3**:
 	- **Giải thích khái niệm**: [[Khối tâm,Vị trí,...]](https://vatlydaicuong.com/khoi-tam)
-
+- **Chương 6: Điện trường (trường tĩnh điện)**:
+	- 
 </details>
 
 
@@ -259,10 +934,10 @@ index_img: https://source.unsplash.com/random
 <!-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
 <details>
-	<summary><b><u><font color="orange">Year 1</font>: Semester <font color="red">1</font></u></b></summary>
+	<summary><b><u><font color="red">Year 1:</font> Semester 1</u></b></summary>
 	
 <details>
-	<summary><b><u>Conclusion End-sem 1 Year1</u></b></summary>
+	<summary><b><u>Conclusion <font color="orange">Endterm</font></u></b></summary>
 	
 {% tabs Name, -1 %}
 
@@ -565,7 +1240,7 @@ index_img: https://source.unsplash.com/random
 ----------------------------------------------------------------
 
 <details close>
-	<summary><b><u>Conclusion Mid-sem 1 Year1</u></b></summary>
+	<summary><b><u>Conclusion <font color="lime">Midterm</font></u></b></summary>
 
 {% tabs Name, -1 %}
 
@@ -1589,3 +2264,5 @@ Definitions:
 </details>
 
 </details>
+
+{% fb_comments %}
