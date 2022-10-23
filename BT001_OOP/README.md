@@ -22,7 +22,7 @@ School's project
     - edit the cpp command to ``cd $dir && g++ *.cpp ./menuHandler/*.cpp ./objects/*.cpp -o $fileNameWithoutExt && $dir$fileNameWithoutExt``
 2. Run in any kind of terminal (VSC included)
     - move to the parent's folder which contains main.cpp
-    - FOR WINDOW: ``if ($?) { g++ *.cpp ./menuHandler/*.cpp ./objects/*.cpp -o main } ; if ($?) { .\main }``
+    - FOR WINDOW: ``cd ./; if ($?) { g++ *.cpp ./menuHandler/*.cpp ./objects/*.cpp -o main } ; if ($?) { .\main }``
     - FOR LINUX: ``g++ *.cpp ./menuHandler/*.cpp ./objects/*.cpp -o main && "./"main``
     
     
