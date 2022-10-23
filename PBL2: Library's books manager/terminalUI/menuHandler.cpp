@@ -91,8 +91,8 @@ int menuHandler::printTheLibrary(){
     string text = "The Library All Items:";
     cout << string(terminalWidth/3, '=') << yellow + bold+underline + text + reset<< string(terminalWidth - terminalWidth/3 - text.length(), '=') << '\n';
     cout 
-    << left << setw(Id_length) << "Order" << left << setw(Title_length) << "Title" 
-    << left << setw(Code_length) << "Code" << left << setw(Inuse_Amount_length) << "Amount" << left << setw(Users_length) << "Users" << "\n";
+    << left << setw(8 + Id_length) << inverse+ "Id" + reset << left << setw(8+ Title_length) <<inverse+ "Title" +reset 
+    << left << setw(8+Code_length) <<inverse+ "Code" +reset << left << setw(8+Inuse_Amount_length) <<inverse+ "Amount" +reset << left << setw(8+Users_length) <<inverse+ "Users" +reset << "\n";
     int rc = sqlite3_exec(dataMain.db, sql, callback_printTheLibrary, (void*)this, &dataMain.zErrMsg);
     cout << string(terminalWidth, '=') << '\n';
 
@@ -154,19 +154,22 @@ int menuHandler::getLibraryInputOption(){
         this->printTheLibrary();
         this->printMenu();
         break;
-    case 2:
-        cout << red + "Feature is not available, please choose another option.\n"+reset ;
-        getLibraryInputOption();
+    case 2: //remove book
+        this->libraryMenuUtils.removeBook();
+        this->printTheLibrary();
+        this->printMenu();
         break;
-    case 3:
-        cout << red + "Feature is not available, please choose another option.\n"+reset ;
-        getLibraryInputOption();
+    case 3: //add user
+        this->libraryMenuUtils.addUser();
+        this->printTheLibrary();
+        this->printMenu();
         break;
-    case 4:
-        cout << red + "Feature is not available, please choose another option.\n"+reset ;
-        getLibraryInputOption();
+    case 4: //remove user
+        this->libraryMenuUtils.removeUser();
+        this->printTheLibrary();
+        this->printMenu();
         break;
-    case 5:
+    case 5: //edit quantity
         cout << red + "Feature is not available, please choose another option.\n"+reset ;
         getLibraryInputOption();
         break;

@@ -8,5 +8,8 @@ class libraryMenuUtils{
         libraryMenuUtils();
         ~libraryMenuUtils();
         int addBookUI();
+        int removeBook();
+        int addUser();
+        int removeUser();
        
 };

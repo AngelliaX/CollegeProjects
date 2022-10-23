@@ -18,7 +18,9 @@ class bookControl{
         bookControl();
         ~bookControl();
         int checkBookByCode(std::string);
+        int checkBookById(int);
         int addBook(std::string,std::string, int);
         int addNewUser(std::string,std::string);
         int removeUser(std::string,std::string);
+        int removeBookByID(std::string);
 };

@@ -12,7 +12,6 @@ dataMain::dataMain(){
 
 dataMain::~dataMain(){
     sqlite3_close(db);
-    sqlite3_close(db);
 }
 
 int dataMain::callback(void *NotUsed, int argc, char **argv, char **azColName) {

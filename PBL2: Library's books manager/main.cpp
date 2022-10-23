@@ -27,13 +27,12 @@ int main(){
     studentControl studentControl;
     studentControl.dataMain = dataMain;
     
-    
-
     menuHandler menuHandler;
     menuHandler.dataMain = dataMain;
     
 
     menuHandler.printMenu();
+    //bookControl.removeUser("0123321","20");
     return 0;
 }
 

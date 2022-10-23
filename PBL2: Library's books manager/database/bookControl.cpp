@@ -3,6 +3,7 @@
 #include <cstring>
 #include "bookControl.h"
 #include "sqlite3.h"
+#include "../terminalUI/ANSI_colorCode.h"
 using namespace std;
 
 
@@ -39,6 +40,22 @@ int callback_onCheckBook(void *aClass, int argc, char **argv, char **azColName) 
     return 0;
 }
 
+int callback_onCheckBookById(void *aClass, int argc, char **argv, char **azColName) {
+    class bookControl* bookControl = static_cast<class bookControl*>(aClass);
+    int Id = bookControl->Id;
+   
+    for(int i = 0; i<argc; i++) {
+        //printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+        if(strcmp(azColName[i], "Id") == 0){
+            if(strcmp(argv[i], std::to_string(Id).c_str()) == 0){
+                //cout << "Book found ++" << endl;
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+
 int bookControl::checkBookByCode(string code){
     this->Code = code;
     /* Create SQL statement */
@@ -47,6 +64,26 @@ int bookControl::checkBookByCode(string code){
 
     /* Execute SQL statement */
     int rc = sqlite3_exec(dataMain.db, sql, callback_onCheckBook, (void*)this, &dataMain.zErrMsg);
+    
+    if( rc != SQLITE_OK ) {
+        if(strcmp(dataMain.zErrMsg, "query aborted") == 0){
+            sqlite3_free(dataMain.zErrMsg);
+            return 1;
+        }
+        fprintf(stderr, "SQL error on Select: %s\n", dataMain.zErrMsg);
+        sqlite3_free(dataMain.zErrMsg);
+    }
+    return 0;
+}
+
+int bookControl::checkBookById(int Id){
+    this->Id = Id;
+    /* Create SQL statement */
+    char *sql = (char*) 
+        "SELECT * from thelibrary";
+
+    /* Execute SQL statement */
+    int rc = sqlite3_exec(dataMain.db, sql, callback_onCheckBookById, (void*)this, &dataMain.zErrMsg);
     
     if( rc != SQLITE_OK ) {
         if(strcmp(dataMain.zErrMsg, "query aborted") == 0){
@@ -110,8 +147,38 @@ int callback_getDatabaseValue(void *aClass, int argc, char **argv, char **azColN
     return 0;
 }
 
-int bookControl::addNewUser(string UserCode, string BookCode){
-    if(!checkBookByCode(BookCode)){
+int callback_getDatabaseValueById(void *aClass, int argc, char **argv, char **azColName) {
+    class bookControl* bookControl = static_cast<class bookControl*>(aClass);
+    int Id = bookControl->Id;
+    
+    int isThisField = 0;
+    for(int i = 0; i<argc; i++) {
+        //printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+        if(strcmp(azColName[i], "Id") == 0){
+            if(strcmp(argv[i], std::to_string(Id).c_str()) == 0){
+                isThisField = 1;
+                continue;
+            }
+        }
+        if(isThisField){
+            if(strcmp(azColName[i], "Amount") == 0){
+                bookControl->Amount = atoi(argv[i]);
+            }else if(strcmp(azColName[i], "In_use") == 0){
+                bookControl->In_use = atoi(argv[i]);
+            }else if(strcmp(azColName[i], "Users") == 0){
+                bookControl->Users = argv[i];
+            }else if(strcmp(azColName[i], "Code") == 0){
+                bookControl->Code = argv[i];
+            }else if(strcmp(azColName[i], "Title") == 0){
+                bookControl->Title = argv[i];
+            }
+        }
+    }
+    return 0;
+}
+
+int bookControl::addNewUser(string UserCode, string BookId){
+    if(!checkBookById(stoi(BookId))){
         cout << "Error: Book Not Found on addNewUser" << endl;
         return 0;
     }
@@ -119,7 +186,7 @@ int bookControl::addNewUser(string UserCode, string BookCode){
     char *sql = (char*) "SELECT * from thelibrary";
 
     /* Execute SQL statement */
-    int rc = sqlite3_exec(dataMain.db, sql, callback_getDatabaseValue, (void*)this, &dataMain.zErrMsg);
+    int rc = sqlite3_exec(dataMain.db, sql, callback_getDatabaseValueById, (void*)this, &dataMain.zErrMsg);
     
     if( rc != SQLITE_OK ) {
         fprintf(stderr, "SQL error on Select: %s\n", dataMain.zErrMsg);
@@ -133,7 +200,7 @@ int bookControl::addNewUser(string UserCode, string BookCode){
         nlohmann::json js = nlohmann::json::parse(this->Users);
         auto new_pos = js.insert(js.end(), UserCode);
 
-        string str = "UPDATE thelibrary set In_use = "+std::to_string(this->In_use +1)+", Users = '"+this->Users+"' where ID = "+std::to_string(this->Id)+"; SELECT * from thelibrary";
+        string str = "UPDATE thelibrary set In_use = "+std::to_string(this->In_use +1)+", Users = '"+js.dump()+"' where ID = "+std::to_string(this->Id)+"; SELECT * from thelibrary";
         char char_array[str.length() + 1];
         strcpy(char_array, str.c_str());
         char* sql = char_array;
@@ -148,8 +215,8 @@ int bookControl::addNewUser(string UserCode, string BookCode){
     return 1;
 }
 
-int bookControl::removeUser(string UserCode, string BookCode){
-     if(!checkBookByCode(BookCode)){
+int bookControl::removeUser(string UserCode, string BookId){
+     if(!checkBookById(stoi(BookId))){
         cout << "Error: Book Not Found on addNewUser" << endl;
         return 0;
     }
@@ -157,7 +224,7 @@ int bookControl::removeUser(string UserCode, string BookCode){
     char *sql = (char*) "SELECT * from thelibrary";
 
     /* Execute SQL statement */
-    int rc = sqlite3_exec(dataMain.db, sql, callback_getDatabaseValue, (void*)this, &dataMain.zErrMsg);
+    int rc = sqlite3_exec(dataMain.db, sql, callback_getDatabaseValueById, (void*)this, &dataMain.zErrMsg);
     if( rc != SQLITE_OK ) {
         fprintf(stderr, "SQL error on Select: %s\n", dataMain.zErrMsg);
         sqlite3_free(dataMain.zErrMsg);
@@ -183,6 +250,37 @@ int bookControl::removeUser(string UserCode, string BookCode){
             }
             return 1;
         }
+    }
+    return 0;
+}
+
+int bookControl::removeBookByID(string Id){
+     if(!checkBookById(stoi(Id))){
+        cout << red + "Error: Book Not Found on removeBookByID" + reset << endl;
+        return 0;
+    }
+
+    char *sql = (char*) "SELECT * from thelibrary";
+
+    /* Execute SQL statement */
+    int rc = sqlite3_exec(dataMain.db, sql, callback_getDatabaseValueById, (void*)this, &dataMain.zErrMsg);
+    if( rc != SQLITE_OK ) {
+        fprintf(stderr, "SQL error on Select: %s\n", dataMain.zErrMsg);
+        sqlite3_free(dataMain.zErrMsg);
+    }
+
+    string str = "DELETE from thelibrary where Id="+Id+"; SELECT * from thelibrary";
+    char char_array[str.length() + 1];
+    strcpy(char_array, str.c_str());
+    sql = char_array;
+
+    /* Execute SQL statement */
+    rc = sqlite3_exec(dataMain.db, sql, callback_general, (void*)this, &dataMain.zErrMsg);
+    if( rc != SQLITE_OK ) {
+        fprintf(stderr, "SQL error on Select: %s\n", dataMain.zErrMsg);
+        sqlite3_free(dataMain.zErrMsg);
+    }else{
+        cout << green + "Successfully removed the book named "+ blue + this->Title + reset << endl;
     }
     return 0;
 }
