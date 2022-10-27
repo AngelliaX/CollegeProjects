@@ -17,7 +17,6 @@ using json = nlohmann::json;
 
 
 int main(){
-    
     cout << "\033[2J\033[1;1H";
 
     dataMain dataMain;
@@ -32,7 +31,6 @@ int main(){
     
 
     menuHandler.printMenu();
-    //bookControl.removeUser("0123321","20");
     return 0;
 }
 

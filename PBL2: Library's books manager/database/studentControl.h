@@ -9,8 +9,8 @@ class studentControl{
         std::string Name;
         std::string Class;
         std::string StudentId;
-        int Amount_in_borrow;
-        std::string Book_info;
+        int Inuse;
+        std::string Info;
         
         class dataMain dataMain;
         studentControl();

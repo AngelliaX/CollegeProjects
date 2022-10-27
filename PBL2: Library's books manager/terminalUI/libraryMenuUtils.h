@@ -11,5 +11,5 @@ class libraryMenuUtils{
         int removeBook();
         int addUser();
         int removeUser();
-       
+        int editQuantity();
 };

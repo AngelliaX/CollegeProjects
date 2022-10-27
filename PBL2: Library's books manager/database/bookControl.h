@@ -23,4 +23,5 @@ class bookControl{
         int addNewUser(std::string,std::string);
         int removeUser(std::string,std::string);
         int removeBookByID(std::string);
+        int editQuantity(std::string,std::string);
 };

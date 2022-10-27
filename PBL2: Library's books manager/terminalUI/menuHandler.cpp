@@ -48,6 +48,113 @@ menuHandler::~menuHandler(){
 
 }
 
+int menuHandler::getInputOption(){
+    cout << inverse + "Choose your option:" + reset;
+    int option;
+    cin >> option; cout << endl;
+    switch (option)
+    {
+    case 0:
+        cout << "\033[2J\033[1;1H";
+        cout << green + "Thank you for using the program\n";
+        exit(0);
+        break;
+    case 1:
+        this->processingAnimation();
+        this->printTheLibrary();
+        break;
+    case 2:
+        this->processingAnimation();
+        this->printStudentData();
+        break;
+    default:
+        cout << red + "Option not found, please re-enter.\n" + reset;
+        this->getInputOption();
+        break;
+    }
+
+    return 1;
+}
+
+int menuHandler::printMenu(){
+    string text = "Main Menu";
+    cout << string(terminalWidth/3, '=') << red +bold+underline +text+ reset << string(terminalWidth - terminalWidth/3 - text.length(), '=') << '\n';
+    // cout << red+"0. Exist program\n"+reset;
+    // cout << "1. Open the Library\n";
+    // cout << "2. Open the Student menu\n";
+    cout <<                                                 right << setw(terminalWidth) << magenta+ "  _               _"+yellow+"   _           "+green+"        _   " +reset << endl;
+    cout << red+"0. Exist program"+reset <<            right << setw(terminalWidth - 16) << magenta+ " | |_ _ _ ___ __"+yellow+"_| |_| |_ ___ _"+green+"__ ___ ___| |_ " +reset << endl;
+    cout << "1. Open the Library" <<                   right << setw(terminalWidth - 19) << magenta+ " |  _| | |   "+yellow+"| . |  _|   | -"+green+"_| . | . | .'|  _|" +reset << endl;
+    cout << "2. Open the Student menu" <<              right << setw(terminalWidth - 24) << magenta+ " |_| |___|"+yellow+"_|_|_  |_| |_|_"+green+"|___|_  |___|__,|_|  " +reset << endl;
+    cout <<                                                 right << setw(terminalWidth) << magenta+ "       "+yellow+"      |___|    "+green+"       |___|            " +reset << endl;
+    cout << string(terminalWidth, '=') << '\n';
+    getInputOption();
+    return 1;
+}
+
+int callback_printStudentData(void *aClass, int argc, char **argv, char **azColName) {
+    class menuHandler* menuHandler = static_cast<class menuHandler*>(aClass);
+    
+    
+    for(int i = 0; i<argc; i++) {  
+        if(strcmp(azColName[i], "Id") == 0){
+            menuHandler->studentControl.Id = atoi(argv[i]);
+        }else if(strcmp(azColName[i], "Name") == 0){
+            menuHandler->studentControl.Name = argv[i];
+        }else if(strcmp(azColName[i], "Class") == 0){
+            menuHandler->studentControl.Class = argv[i];
+        }else if(strcmp(azColName[i], "StudentId") == 0){
+            menuHandler->studentControl.StudentId = argv[i];
+        }else if(strcmp(azColName[i], "Amount_in_borrow") == 0){
+            menuHandler->studentControl.Inuse = atoi(argv[i]);
+        }else if(strcmp(azColName[i], "Book_info") == 0){
+            menuHandler->studentControl.Info = argv[i];
+        }
+    }
+    if (menuHandler->studentControl.Name.length() >= menuHandler->Name_length){
+        menuHandler->studentControl.Name = menuHandler->studentControl.Name.substr(0,menuHandler->Name_length-4) + "...";
+    }
+    if (menuHandler->studentControl.Class.length() >= menuHandler->Class_length){
+        menuHandler->studentControl.Class = menuHandler->studentControl.Class.substr(0,menuHandler->Class_length-4) + "...";
+    }
+    if (menuHandler->studentControl.Info.length() >= menuHandler->Info_length){
+        menuHandler->studentControl.Info = menuHandler->studentControl.Info.substr(0,menuHandler->Info_length-4) + "...";
+    }
+    cout
+    << left << setw(menuHandler->Id_length) << menuHandler->studentControl.Id 
+    << left << setw(menuHandler->StudentId_length) << menuHandler->studentControl.StudentId
+    << left << setw(menuHandler->Name_length) << menuHandler->studentControl.Name
+    << left << setw(menuHandler->Class_length) << menuHandler->studentControl.Class 
+    << left << setw(menuHandler->Inuse_length) <<  std::to_string(menuHandler->studentControl.Inuse)
+    << left << setw(menuHandler->Info_length) << menuHandler->studentControl.Info << "\n";
+    return 0;
+}
+
+int menuHandler::printStudentData(){
+    cout << "\033[2J\033[1;1H";
+    char *sql = (char*) "SELECT * from studentinfo";
+
+
+    string text = "Students' Database:";
+    cout << string(terminalWidth/3, '=') << yellow + bold+underline + text + reset<< string(terminalWidth - terminalWidth/3 - text.length(), '=') << '\n';
+    cout 
+    << left << setw(8+ Id_length) << inverse+ "Id" + reset 
+    << left << setw(8+ StudentId_length) <<inverse+ "Student's Id" +reset 
+    << left << setw(8+ Name_length) <<inverse+ "Name" +reset 
+    << left << setw(8+ Class_length) <<inverse+ "Class" +reset 
+    << left << setw(8+Inuse_length) <<inverse+ "In use" +reset 
+    << left << setw(8+Info_length) <<inverse+ "Book's info" +reset << "\n";
+    int rc = sqlite3_exec(dataMain.db, sql, callback_printStudentData, (void*)this, &dataMain.zErrMsg);
+    cout << string(terminalWidth, '=') << '\n';
+
+    if( rc != SQLITE_OK ) {
+        fprintf(stderr, "SQL error on Select: %s\n", dataMain.zErrMsg);
+        sqlite3_free(dataMain.zErrMsg);
+    }
+    //this->printLibraryMenu();
+    return 1;
+}
+
 int callback_printTheLibrary(void *aClass, int argc, char **argv, char **azColName) {
     class menuHandler* menuHandler = static_cast<class menuHandler*>(aClass);
     
@@ -77,9 +184,11 @@ int callback_printTheLibrary(void *aClass, int argc, char **argv, char **azColNa
         menuHandler->bookControl.Users = menuHandler->bookControl.Users.substr(0,menuHandler->Users_length-4) + "...";
     }
     cout
-    << left << setw(menuHandler->Id_length) << menuHandler->bookControl.Id << left << setw(menuHandler->Title_length) << menuHandler->bookControl.Title
-    << left << setw(menuHandler->Code_length) << menuHandler->bookControl.Code.substr(0,menuHandler->Code_length) << left << setw(menuHandler->Inuse_Amount_length) <<  std::to_string(menuHandler->bookControl.In_use)+"/"+std::to_string(menuHandler->bookControl.Amount) 
-    << left << setw(menuHandler->Users_length) << menuHandler->bookControl.Users.substr(0,menuHandler->Users_length) << "\n";
+    << left << setw(menuHandler->Id_length) << menuHandler->bookControl.Id 
+    << left << setw(menuHandler->Title_length) << menuHandler->bookControl.Title
+    << left << setw(menuHandler->Code_length) << menuHandler->bookControl.Code 
+    << left << setw(menuHandler->Inuse_Amount_length) <<  std::to_string(menuHandler->bookControl.In_use)+"/"+std::to_string(menuHandler->bookControl.Amount) 
+    << left << setw(menuHandler->Users_length) << menuHandler->bookControl.Users << "\n";
     return 0;
 }
 
@@ -101,41 +210,6 @@ int menuHandler::printTheLibrary(){
         sqlite3_free(dataMain.zErrMsg);
     }
     this->printLibraryMenu();
-    return 1;
-}
-
-int menuHandler::getInputOption(){
-    cout << inverse + "Choose your option:" + reset;
-    int option;
-    cin >> option; cout << endl;
-    switch (option)
-    {
-    case 0:
-        cout << "\033[2J\033[1;1H";
-        cout << green + "Thank you for using the program\n";
-        exit(0);
-        break;
-    case 1:
-        this->processingAnimation();
-        this->printTheLibrary();
-        break;
-    default:
-        cout << red + "Option not found, please re-enter.\n" + reset;
-        this->getInputOption();
-        break;
-    }
-
-    return 1;
-}
-
-int menuHandler::printMenu(){
-    string text = "Main Menu";
-    cout << string(terminalWidth/3, '=') << red +bold+underline +text+ reset << string(terminalWidth - terminalWidth/3 - text.length(), '=') << '\n';
-    cout << red+"0. Exist program\n"+reset;
-    cout << "1. Open the Library\n";
-    cout << "2. Open the Student menu\n";
-    cout << string(terminalWidth, '=') << '\n';
-    getInputOption();
     return 1;
 }
 
@@ -170,8 +244,9 @@ int menuHandler::getLibraryInputOption(){
         this->printMenu();
         break;
     case 5: //edit quantity
-        cout << red + "Feature is not available, please choose another option.\n"+reset ;
-        getLibraryInputOption();
+        this->libraryMenuUtils.editQuantity();
+        this->printTheLibrary();
+        this->printMenu();
         break;
     default:
         cout << red + "Option not found, please re-enter.\n"+reset ;
@@ -204,9 +279,9 @@ int menuHandler::processingAnimation(){
     cout << "P"<< flush; usleep(param);cout << "r"<< flush; usleep(param);cout << "o"<< flush; usleep(param);cout << "g"<< flush; usleep(param);cout << "r"<< flush; usleep(param);cout << "a"<< flush; usleep(param);cout << "m"<< flush; usleep(param);cout << " "<< flush; usleep(param);
     cout << "i"<< flush; usleep(param);cout << "s"<< flush; usleep(param);cout << " "<< flush; usleep(param);
     cout << "r"<< flush; usleep(param);cout << "u"<< flush; usleep(param);cout << "n"<< flush; usleep(param);cout << "n"<< flush; usleep(param);cout << "i"<< flush; usleep(param);cout << "n"<< flush; usleep(param);cout << "g"<< flush; usleep(param);
-    cout << ", "<< flush; usleep(param);cout << "p"<< flush; usleep(param);cout << "l"<< flush; usleep(param);cout << "e"<< flush; usleep(param);cout << "a"<< flush; usleep(param);cout << "s"<< flush; usleep(param);cout << "e"<< flush; usleep(param);cout << " "<< flush;
-    cout << "w"<< flush; usleep(param);cout << "a"<< flush; usleep(param);cout << "i"<< flush; usleep(param);cout << "t"<< flush; usleep(param);
-    usleep(param2);cout << "."<< flush; usleep(param2);cout << "."<< flush; usleep(param2);cout << "."<< flush; usleep(param2);
+    cout << ", "<< flush; usleep(param);cout << red+"p"<< flush; usleep(param);cout << "l"<< flush; usleep(param);cout << "e"<< flush; usleep(param);cout << "a"<< flush; usleep(param);cout << yellow+ "s"<< flush; usleep(param);cout << "e"<< flush; usleep(param);cout << " "<< flush;
+    cout << "w"<< flush; usleep(param);cout << green+ "a"<< flush; usleep(param);cout << "i"<< flush; usleep(param);cout << "t"<< flush; usleep(param);
+    usleep(param2);cout << "."<< flush; usleep(param2);cout << "."<< flush; usleep(param2);cout << "." + reset << flush; usleep(param2);
     cout << "\n";
     return 1;
 }

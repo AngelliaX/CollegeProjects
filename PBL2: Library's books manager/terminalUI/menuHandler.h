@@ -8,6 +8,7 @@
 class menuHandler{
     public:
         int terminalWidth = 150;
+        
         int Id_length = terminalWidth/16;
         int Title_length = terminalWidth/4.2;
         int Code_length = terminalWidth/10.5;
@@ -26,4 +27,13 @@ class menuHandler{
         int getInputOption();
         int getLibraryInputOption();
         int processingAnimation();
+
+        //int Id_length = terminalWidth/16;
+        int StudentId_length = terminalWidth/10.5;
+        int Name_length = terminalWidth/4.2;
+        int Class_length = terminalWidth/15;
+        int Inuse_length = terminalWidth/15;
+        int Info_length = terminalWidth/2.12;
+        int printStudentData();
+
 };

@@ -284,3 +284,37 @@ int bookControl::removeBookByID(string Id){
     }
     return 0;
 }
+
+int bookControl::editQuantity(string BookId,string newQuantity){
+    if(!checkBookById(stoi(BookId))){
+        cout << "Error: Book Not Found on editQuantity" << endl;
+        return 0;
+    }
+
+    char *sql = (char*) "SELECT * from thelibrary";
+
+    /* Execute SQL statement */
+    int rc = sqlite3_exec(dataMain.db, sql, callback_getDatabaseValueById, (void*)this, &dataMain.zErrMsg);
+    
+    if( rc != SQLITE_OK ) {
+        fprintf(stderr, "SQL error on Select: %s\n", dataMain.zErrMsg);
+        sqlite3_free(dataMain.zErrMsg);
+    }
+
+    if(stoi(newQuantity) < this->In_use){
+        cout << "Error: New quantity cannot be lower then the current users" << endl;
+        return 0;
+    }else{
+        string str = "UPDATE thelibrary set Amount = "+newQuantity+" where ID = "+std::to_string(this->Id)+"; SELECT * from thelibrary";
+        char char_array[str.length() + 1];
+        strcpy(char_array, str.c_str());
+        char* sql = char_array;
+        
+        int rc = sqlite3_exec(dataMain.db, sql, callback_general, 0, &dataMain.zErrMsg);
+        if( rc != SQLITE_OK ){
+            fprintf(stderr, "SQL error on Update on addNewUser: %s\n", dataMain.zErrMsg);
+            sqlite3_free(dataMain.zErrMsg);
+        }
+    }
+    return 1;
+}
